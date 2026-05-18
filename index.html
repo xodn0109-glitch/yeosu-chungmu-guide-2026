@@ -72,6 +72,13 @@
     flex-shrink: 0;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,.12));
   }
+  .school-fullname {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,.1));
+  }
   .school-logo.lg {
     width: 88px; height: 88px;
     filter: drop-shadow(0 6px 16px rgba(0,0,0,.15));
@@ -639,8 +646,7 @@
 <header>
   <div class="hbar">
     <div class="school">
-      <img class="school-logo" src="logo.png" alt="여수충무고 로고">
-      <span>여수충무고</span>
+      <img class="school-fullname" src="fullname-logo.png" alt="여수충무고등학교">
     </div>
     <div class="switch" role="tablist">
       <button id="g1" class="active" onclick="setGrade(1)">1학년</button>
