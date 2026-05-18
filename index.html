@@ -64,7 +64,7 @@
     -webkit-backdrop-filter: saturate(180%) blur(16px);
     border-bottom: 1px solid rgba(123, 109, 186, 0.1);
   }
-  .hbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 18px; max-width: 720px; margin: 0 auto; gap: 12px; }
+  .hbar { display:flex; align-items:center; justify-content:flex-end; padding: 14px 18px; max-width: 720px; margin: 0 auto; gap: 12px; }
   .school { display:flex; align-items:center; gap: 8px; font-weight: 800; font-size: 14px; color: var(--purple-1); flex-shrink: 0; }
   .school-logo {
     width: 32px; height: 32px;
@@ -124,6 +124,15 @@
     pointer-events: none;
   }
   .hero > * { position: relative; }
+  .hero-logo {
+    display: block;
+    height: 90px;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.1));
+  }
   .hero-pill {
     display: inline-flex; align-items: center; gap: 8px;
     height: 40px;
@@ -645,9 +654,6 @@
 
 <header>
   <div class="hbar">
-    <div class="school">
-      <img class="school-fullname" src="fullname-logo.png" alt="여수충무고등학교">
-    </div>
     <div class="switch" role="tablist">
       <button id="g1" class="active" onclick="setGrade(1)">1학년</button>
       <button id="g2" onclick="setGrade(2)">2학년</button>
@@ -659,11 +665,7 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="hero-pill hero-school">
-      <img src="logo.png" alt="여수충무고 로고">
-      <span>여수충무고등학교</span>
-    </div>
-    <div class="hero-pill year">2026학년도</div>
+    <img class="hero-logo" src="fullname-logo.png" alt="여수충무고등학교">
     <h1><span class="grade-num" id="gradeLabel">1학년</span><br>과목선택가이드북</h1>
     <div class="stamp-badge">🎯 진로·학업 설계 안내</div>
   </section>
