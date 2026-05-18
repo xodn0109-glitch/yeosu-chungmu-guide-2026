@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7b6dba">
+<title>2026학년도 과목선택가이드 · 여수충무고등학교</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --purple-1: #7b6dba;
+    --purple-2: #9a8ed4;
+    --purple-soft: #ede9f9;
+    --blue-1: #5a8fd6;
+    --blue-2: #88aee0;
+    --blue-soft: #e3edf9;
+    --yellow: #fce58a;
+    --yellow-soft: #fdf3c4;
+    --yellow-deep: #f0c91c;
+    --pink: #f5c0d4;
+    --pink-soft: #fce4ed;
+    --pink-deep: #e489ad;
+    --blue-bg: #c5dbf3;
+    --blue-bg-soft: #e3eff9;
+    --blue-deep: #4178c1;
+    --green: #c0e8bb;
+    --green-soft: #e1f3de;
+    --green-deep: #57a050;
+    --red: #e84545;
+    --text: #2a2c46;
+    --text-light: #6a6c84;
+  }
+  * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: #fbf8f2;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(245, 192, 212, 0.12) 0%, transparent 30%),
+      radial-gradient(circle at 100% 30%, rgba(192, 232, 187, 0.1) 0%, transparent 30%),
+      radial-gradient(circle at 0% 70%, rgba(252, 229, 138, 0.1) 0%, transparent 30%);
+    color: var(--text);
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 0 100px;
+    overscroll-behavior-y: contain;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 18px; position: relative; }
+
+  /* ===== Decorative leaves ===== */
+  .leaf {
+    position: absolute; pointer-events: none; z-index: 0;
+    width: 90px; height: 90px;
+    opacity: .55;
+  }
+
+  /* ===== Header ===== */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 248, 242, 0.88);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid rgba(123, 109, 186, 0.1);
+  }
+  .hbar { display:flex; align-items:center; justify-content:space-between; padding: 14px 18px; max-width: 720px; margin: 0 auto; gap: 12px; }
+  .school { display:flex; align-items:center; gap: 8px; font-weight: 800; font-size: 14px; color: var(--purple-1); flex-shrink: 0; }
+  .school-logo {
+    width: 32px; height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,.12));
+  }
+  .school-logo.lg {
+    width: 88px; height: 88px;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.15));
+  }
+  .school-logo.md {
+    width: 44px; height: 44px;
+  }
+  .progress { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--purple-1), var(--pink-deep)); width: 0%; transition: width .15s; border-radius: 0 3px 3px 0; }
+
+  /* Grade switch */
+  .switch {
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--purple-soft); border-radius: 999px; padding: 4px; gap: 4px;
+  }
+  .switch button {
+    background: transparent; border: 0; padding: 8px 18px; border-radius: 999px;
+    font-family: inherit; font-weight: 700; font-size: 13.5px; color: var(--text-light);
+    cursor: pointer; transition: all .2s; white-space: nowrap;
+  }
+  .switch button.active {
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    color: #fff;
+    box-shadow: 0 3px 10px -2px rgba(123, 109, 186, .4);
+  }
+
+  /* ===== Hero (표지 스타일) ===== */
+  .hero {
+    margin: 20px 0 24px;
+    padding: 36px 26px 32px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f6f3fa 100%);
+    border: 2px dashed rgba(123, 109, 186, 0.18);
+    box-shadow: 0 14px 40px -18px rgba(123, 109, 186, .2);
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(123, 109, 186, 0.04) 24px, rgba(123, 109, 186, 0.04) 25px),
+      repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(123, 109, 186, 0.04) 24px, rgba(123, 109, 186, 0.04) 25px);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-weight: 800; font-size: 13.5px;
+    line-height: 1;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+  .hero-school {
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    color: #fff;
+    box-shadow: 0 6px 18px -4px rgba(123, 109, 186, .4);
+    margin-bottom: 14px;
+  }
+  .hero-school img {
+    width: 22px; height: 22px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.2));
+    display: block;
+  }
+  .hero .year {
+    color: var(--purple-1);
+    background: var(--purple-soft);
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: 30px; line-height: 1.2; margin: 0 0 8px;
+    font-weight: 900; color: var(--purple-1);
+    letter-spacing: -1px;
+  }
+  .hero h1 .grade-num {
+    background: linear-gradient(135deg, var(--blue-1), var(--purple-1));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .stamp-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--yellow), var(--yellow-deep));
+    color: #6b4e00;
+    padding: 8px 22px;
+    border-radius: 999px;
+    font-weight: 800; font-size: 14px;
+    margin-top: 12px;
+    box-shadow: 0 4px 14px -3px rgba(240, 201, 28, .5);
+    transform: rotate(-2deg);
+  }
+  .hero .school-tag {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 22px; padding-top: 18px;
+    border-top: 1px solid rgba(123, 109, 186, 0.15);
+    font-size: 12.5px; font-weight: 700; color: var(--text-light);
+  }
+  .hero .school-tag b { color: var(--purple-1); font-weight: 800; }
+
+  /* ===== Section nav (chapter chips) ===== */
+  .toc {
+    display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 18px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -18px;
+    padding-left: 18px; padding-right: 18px;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    flex-shrink: 0;
+    padding: 8px 14px; background: #fff; border-radius: 999px;
+    font-size: 12.5px; font-weight: 700; color: var(--purple-1);
+    text-decoration: none;
+    border: 1.5px solid var(--purple-soft);
+    transition: all .15s;
+  }
+  .toc a:active { transform: scale(.96); background: var(--purple-soft); }
+
+  /* ===== Chapter card (PDF style) ===== */
+  details {
+    background: #fff;
+    border-radius: 22px;
+    margin: 14px 0;
+    overflow: hidden;
+    border: 1.5px solid rgba(123, 109, 186, 0.1);
+    box-shadow: 0 3px 16px -8px rgba(123, 109, 186, .15);
+    position: relative;
+  }
+  details[open] { box-shadow: 0 14px 44px -18px rgba(123, 109, 186, .25); }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 20px;
+    display: flex; align-items: center; gap: 12px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  .chap-tag {
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px 8px 10px;
+    background: linear-gradient(135deg, var(--c1, var(--purple-1)), var(--c2, var(--blue-1)));
+    border-radius: 999px;
+    color: #fff;
+    box-shadow: 0 4px 14px -4px rgba(0,0,0,.2);
+  }
+  .chap-tag .icon {
+    width: 24px; height: 24px;
+    background: rgba(255,255,255,.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+  }
+  .chap-tag .label {
+    font-weight: 800; font-size: 12.5px; letter-spacing: .3px;
+  }
+  .chap-title { flex: 1; min-width: 0; }
+  .chap-title h2 {
+    font-size: 15.5px; font-weight: 800; margin: 0; color: var(--text);
+    letter-spacing: -.5px;
+    line-height: 1.3;
+    word-break: keep-all;
+  }
+  .chap-title .desc { font-size: 12px; color: var(--text-light); margin-top: 3px; font-weight: 500; }
+  .caret {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    color: var(--purple-2);
+    transition: transform .25s;
+  }
+  details[open] .caret { transform: rotate(180deg); }
+  .chap-body { padding: 4px 22px 26px; }
+
+  /* ===== Section heading (alpha-badge style) ===== */
+  h3.sec {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin: 24px 0 14px 0;
+    padding: 8px 18px 8px 14px;
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    color: #fff;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -.2px;
+    box-shadow: 0 4px 14px -4px rgba(123, 109, 186, .35);
+  }
+  h3.sec .sec-icon {
+    width: 18px; height: 18px;
+    background: rgba(255,255,255,.3);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    transform: rotate(45deg);
+  }
+  h3.sec .sec-icon span { transform: rotate(-45deg); }
+
+  h4 {
+    font-size: 14.5px; font-weight: 800; margin: 18px 0 10px;
+    color: var(--purple-1);
+    padding-left: 12px;
+    border-left: 4px solid var(--purple-2);
+  }
+  p, li { font-size: 14.5px; color: var(--text); }
+  ul, ol { padding-left: 22px; margin: 8px 0; }
+  li { margin: 5px 0; }
+  strong { color: #1a1c35; font-weight: 700; }
+  mark { background: linear-gradient(180deg, transparent 55%, var(--yellow) 55%); padding: 0 3px; color: inherit; font-weight: 700; }
+
+  /* ===== Note boxes ===== */
+  .note {
+    font-size: 13px; color: var(--text-light);
+    padding: 11px 16px; background: var(--purple-soft);
+    border-radius: 12px; margin: 12px 0;
+    border-left: 4px solid var(--purple-2);
+  }
+  .warn {
+    font-size: 13.5px; color: #8a4d00;
+    padding: 13px 16px;
+    background: linear-gradient(135deg, var(--yellow-soft), var(--yellow));
+    border-radius: 14px; margin: 12px 0;
+    border-left: 4px solid var(--yellow-deep);
+    font-weight: 600;
+  }
+  .important {
+    font-size: 13.5px; padding: 14px 18px;
+    background: linear-gradient(135deg, #fff1d3, var(--yellow));
+    border-radius: 16px; margin: 14px 0;
+    font-weight: 600; color: #6b3a00;
+    border: 1.5px solid var(--yellow-deep);
+  }
+  .important strong { color: #5a3000; }
+
+  /* ===== Table cards ===== */
+  .table-card {
+    background: #fafaff;
+    border-radius: 14px;
+    padding: 4px 16px;
+    margin: 10px 0;
+    border: 1.5px solid var(--purple-soft);
+  }
+  .table-card .row {
+    display: flex; gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px dashed rgba(123, 109, 186, .18);
+    font-size: 13.5px;
+  }
+  .table-card .row:last-child { border-bottom: 0; }
+  .table-card .row .k { flex: 0 0 38%; color: var(--purple-1); font-weight: 700; }
+  .table-card .row .v { flex: 1; color: var(--text); }
+  .table-card .row.total {
+    background: linear-gradient(135deg, var(--purple-soft), var(--blue-soft));
+    margin: 6px -12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border-bottom: 0;
+    font-weight: 800;
+  }
+  .table-card .row.total .k, .table-card .row.total .v { color: var(--purple-1); }
+
+  /* ===== Semester block (PDF Ch.4 핵심 디자인) ===== */
+  .sem-block {
+    border-radius: 22px;
+    padding: 18px 18px 20px;
+    margin: 16px 0;
+    position: relative;
+    border: 2px solid var(--sem-border, var(--yellow-deep));
+    background: linear-gradient(180deg, var(--sem-bg-1, var(--yellow-soft)) 0%, #fff 70%);
+  }
+  .sem-block.yellow { --sem-border: var(--yellow-deep); --sem-bg-1: var(--yellow-soft); --sem-accent: #8a5a00; }
+  .sem-block.pink { --sem-border: var(--pink-deep); --sem-bg-1: var(--pink-soft); --sem-accent: #9d2f5e; }
+  .sem-block.blue { --sem-border: var(--blue-deep); --sem-bg-1: var(--blue-bg-soft); --sem-accent: #2a5a9d; }
+  .sem-block.green { --sem-border: var(--green-deep); --sem-bg-1: var(--green-soft); --sem-accent: #2d5a2a; }
+
+  .sem-header {
+    display: flex; justify-content: center;
+    margin: -32px auto 16px;
+  }
+  .sem-title {
+    display: inline-block;
+    background: var(--sem-border);
+    color: #fff;
+    padding: 7px 22px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    box-shadow: 0 4px 14px -3px rgba(0,0,0,.15);
+  }
+
+  /* Pin-shape "택N" badge (PDF feature) */
+  .pick-group {
+    background: #fff;
+    border: 2px solid var(--sem-border);
+    border-radius: 18px;
+    padding: 22px 16px 14px;
+    margin: 22px 0 0;
+    position: relative;
+  }
+  .pick-group:first-of-type { margin-top: 8px; }
+  .pick-pin {
+    position: absolute;
+    top: -16px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--sem-border);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-weight: 800; font-size: 12.5px;
+    letter-spacing: .3px;
+    box-shadow: 0 3px 10px -2px rgba(0,0,0,.2);
+  }
+  .pick-pin::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: var(--sem-border);
+  }
+  .pick-courses {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+    text-align: center;
+  }
+  .pick-courses span {
+    background: var(--sem-bg-1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--sem-accent);
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,.03);
+  }
+  .pick-courses span.fusion {
+    color: var(--red);
+    font-weight: 800;
+    background: #fff5f5;
+    border: 1px solid #ffd0d0;
+  }
+  .pick-meta {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--sem-accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: .7;
+  }
+
+  /* ===== Category block (Ch.2, Ch.3) ===== */
+  .cat-block {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    border: 1.5px solid var(--purple-soft);
+    box-shadow: 0 2px 8px -4px rgba(123, 109, 186, .1);
+  }
+  .cat-block h4 {
+    color: var(--purple-1);
+    margin: 0 0 10px;
+    padding-left: 0;
+    border-left: 0;
+    font-size: 15px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .cat-block h4::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    border-radius: 50%;
+    display: inline-block;
+    transform: rotate(45deg);
+    border-radius: 2px;
+  }
+  .cat-block .field {
+    font-size: 13.5px; margin: 8px 0;
+    line-height: 1.6;
+  }
+  .cat-block .field .label {
+    display: inline-block;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    margin-right: 6px;
+    vertical-align: 2px;
+  }
+
+  /* ===== Timeline (PDF Ch.5 style) ===== */
+  .timeline-pdf {
+    margin: 16px 0;
+    display: grid; gap: 10px;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .tl-content {
+    background: var(--blue-bg-soft);
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--blue-bg);
+  }
+  .tl-content .tl-label {
+    font-weight: 800; font-size: 13.5px; color: var(--blue-deep); margin-bottom: 4px;
+  }
+  .tl-content .tl-desc {
+    font-size: 12.5px; color: var(--text); line-height: 1.5;
+  }
+  .tl-time {
+    background: linear-gradient(135deg, var(--yellow), var(--yellow-deep));
+    color: #6b3a00;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-weight: 800; font-size: 13.5px;
+    display: flex; align-items: center; justify-content: center;
+    min-width: 64px;
+    box-shadow: 0 3px 10px -3px rgba(240, 201, 28, .4);
+  }
+  .tl-note {
+    background: var(--pink-soft);
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 12.5px;
+    color: #8a3e5e;
+    margin: 4px 0;
+    border-left: 4px solid var(--pink-deep);
+  }
+  .tl-note strong { color: #6e1f44; }
+
+  /* ===== Steps ===== */
+  .steps { counter-reset: step; margin: 12px 0; display: grid; gap: 8px; }
+  .step {
+    display: flex; gap: 14px; padding: 14px 16px;
+    background: #fff;
+    border-radius: 14px;
+    align-items: center;
+    border: 1.5px solid var(--purple-soft);
+  }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+    box-shadow: 0 3px 8px -2px rgba(123, 109, 186, .4);
+  }
+  .step .text { font-size: 13.5px; color: var(--text); font-weight: 500; }
+
+  /* ===== Stages (Ch1 7단계) ===== */
+  .stages { display: grid; gap: 8px; margin: 12px 0; }
+  .stage {
+    display: flex; gap: 12px; padding: 12px 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--purple-soft) 0%, var(--blue-soft) 100%);
+    align-items: center;
+    border: 1px solid rgba(123, 109, 186, .1);
+  }
+  .stage .n {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: #fff;
+    color: var(--purple-1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+    box-shadow: 0 2px 6px rgba(123, 109, 186, .25);
+  }
+  .stage .body { font-size: 13.5px; }
+  .stage .body strong { display: block; color: var(--purple-1); margin-bottom: 2px; font-size: 13.5px; }
+  .stage .body span { color: var(--text-light); font-size: 12.5px; line-height: 1.4; }
+
+  /* ===== Grade dots ===== */
+  .grade-dots {
+    display: flex; gap: 4px; margin: 14px 0;
+    border-radius: 12px; overflow: hidden;
+  }
+  .grade-dots div {
+    flex: 1; padding: 12px 4px;
+    text-align: center;
+    font-size: 11.5px; color: #fff; font-weight: 700;
+  }
+  .grade-dots div b { display: block; font-size: 15px; margin-bottom: 3px; }
+
+  /* ===== Floating button ===== */
+  .float-top {
+    position: fixed; bottom: 24px; right: 18px;
+    width: 50px; height: 50px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--purple-1), var(--blue-1));
+    color: #fff; border: 0;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 28px -8px rgba(123, 109, 186, .5);
+    cursor: pointer;
+    transform: translateY(90px); transition: transform .25s;
+    z-index: 100;
+  }
+  .float-top.show { transform: translateY(0); }
+
+  /* ===== Hidden by grade ===== */
+  [data-grade]:not([data-grade="all"]) { display: none; }
+  body.grade-1 [data-grade="1"], body.grade-1 [data-grade="all"] { display: block; }
+  body.grade-2 [data-grade="2"], body.grade-2 [data-grade="all"] { display: block; }
+  /* inline elements */
+  h2[data-grade="1"], h2[data-grade="2"] { display: none !important; }
+  body.grade-1 h2[data-grade="1"], body.grade-2 h2[data-grade="2"] { display: inline !important; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center; padding: 30px 16px;
+    color: var(--text-light); font-size: 12px;
+    position: relative;
+  }
+  footer .logo-mark {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 800; color: var(--purple-1);
+    font-size: 14px;
+  }
+
+  /* Corner decorations */
+  .corner-deco {
+    position: fixed; pointer-events: none;
+    width: 110px; height: 110px;
+    opacity: .35;
+    z-index: 0;
+  }
+  .corner-tl { top: 60px; left: -20px; }
+  .corner-br { bottom: -10px; right: -20px; }
+
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 26px; }
+    .hero { padding: 30px 20px 26px; }
+    summary { padding: 16px 16px; gap: 10px; }
+    .chap-tag { padding: 7px 12px 7px 8px; }
+    .chap-tag .label { font-size: 11.5px; }
+    .chap-title h2 { font-size: 15.5px; }
+    .chap-body { padding: 4px 18px 22px; }
+    .corner-deco { display: none; }
+  }
+</style>
+</head>
+<body class="grade-1">
+
+<svg class="corner-deco corner-tl" viewBox="0 0 100 100" fill="none">
+  <ellipse cx="20" cy="30" rx="20" ry="35" fill="#f5c0d4" transform="rotate(-25 20 30)"/>
+  <ellipse cx="45" cy="55" rx="18" ry="30" fill="#c0e8bb" transform="rotate(15 45 55)"/>
+</svg>
+
+<svg class="corner-deco corner-br" viewBox="0 0 100 100" fill="none">
+  <ellipse cx="75" cy="70" rx="22" ry="36" fill="#fce58a" transform="rotate(30 75 70)"/>
+  <ellipse cx="50" cy="45" rx="18" ry="28" fill="#c0e8bb" transform="rotate(-20 50 45)"/>
+</svg>
+
+<header>
+  <div class="hbar">
+    <div class="school">
+      <img class="school-logo" src="logo.png" alt="여수충무고 로고">
+      <span>여수충무고</span>
+    </div>
+    <div class="switch" role="tablist">
+      <button id="g1" class="active" onclick="setGrade(1)">1학년</button>
+      <button id="g2" onclick="setGrade(2)">2학년</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-pill hero-school">
+      <img src="logo.png" alt="여수충무고 로고">
+      <span>여수충무고등학교</span>
+    </div>
+    <div class="hero-pill year">2026학년도</div>
+    <h1><span class="grade-num" id="gradeLabel">1학년</span><br>과목선택가이드북</h1>
+    <div class="stamp-badge">🎯 진로·학업 설계 안내</div>
+    <div class="school-tag">
+      <span>📍</span>
+      <b>여수충무고등학교</b>
+      <span>·</span>
+      <span>Yeosu Chungmu High School</span>
+    </div>
+  </section>
+
+  <nav class="toc">
+    <a href="#c1">Ch.1 고교학점제</a>
+    <a href="#c2">Ch.2 계열별 설계</a>
+    <a href="#c3">Ch.3 교과목 편제</a>
+    <a href="#c4">Ch.4 수강신청 과목</a>
+    <a href="#c5">Ch.5 신청 절차</a>
+    <a href="#c6">Ch.6 학업계획서</a>
+    <a href="#c7" data-grade="1">Ch.7 3학년 계획</a>
+  </nav>
+
+  <!-- ============== CHAPTER 1 ============== -->
+  <details id="c1" open style="--c1:#7b6dba; --c2:#5a8fd6;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">🏫</div>
+        <div class="label">Chapter 1.</div>
+      </div>
+      <div class="chap-title">
+        <h2>2022 개정 교육과정 "고교학점제"</h2>
+        <div class="desc">편제 · 학점 · 평가 시스템</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+
+      <h3 class="sec"><div class="sec-icon"><span>📚</span></div>교육과정 편제</h3>
+      <div class="table-card">
+        <div class="row"><div class="k">공통과목</div><div class="v">기초 소양 함양 · 기본 학력 보장</div></div>
+        <div class="row"><div class="k">일반 선택</div><div class="v">교과별 주요 학습 내용 이해·탐구</div></div>
+        <div class="row"><div class="k">진로 선택</div><div class="v">교과별 심화학습 · 진로 관련</div></div>
+        <div class="row"><div class="k">융합 선택</div><div class="v">교과 내·간 주제 융합, 실생활 응용</div></div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>🎯</span></div>학점 배당 기준</h3>
+      <div class="table-card">
+        <div class="row"><div class="k">국어</div><div class="v">8학점 (공통국어 1·2)</div></div>
+        <div class="row"><div class="k">수학</div><div class="v">8학점 (공통수학 1·2)</div></div>
+        <div class="row"><div class="k">영어</div><div class="v">8학점 (공통영어 1·2)</div></div>
+        <div class="row"><div class="k">한국사</div><div class="v">6학점</div></div>
+        <div class="row"><div class="k">통합사회</div><div class="v">8학점</div></div>
+        <div class="row"><div class="k">통합과학+실험</div><div class="v">10학점</div></div>
+        <div class="row"><div class="k">체육 / 예술</div><div class="v">각 10학점</div></div>
+        <div class="row"><div class="k">기·가/정보/외국어/한문/교양</div><div class="v">16학점</div></div>
+        <div class="row total"><div class="k">필수 이수</div><div class="v">84학점</div></div>
+        <div class="row total"><div class="k">자율 이수</div><div class="v">90학점</div></div>
+        <div class="row total"><div class="k">창체활동</div><div class="v">18학점 (288시간)</div></div>
+        <div class="row total"><div class="k">총 이수</div><div class="v">192학점</div></div>
+      </div>
+      <div class="note">※ 국·수·영 이수 학점 총합 81점 초과 불가. 교과 이수 174학점 초과 시 초과분 50% 초과 불가.</div>
+
+      <h3 class="sec"><div class="sec-icon"><span>✅</span></div>학점인정 이수 기준</h3>
+      <ul>
+        <li><strong>공통과목</strong>: 출석률 2/3 이상 + <strong>학업성취율 40% 이상</strong></li>
+        <li><strong>선택과목</strong>: 출석률 2/3 이상</li>
+        <li><strong>창의적 체험활동</strong>: 학년도별 수업일수 2/3 이상</li>
+      </ul>
+
+      <h3 class="sec"><div class="sec-icon"><span>📊</span></div>과목별 성적 산출</h3>
+      <div class="table-card">
+        <div class="row"><div class="k">보통교과</div><div class="v">원점수 · A~E · 5등급</div></div>
+        <div class="row"><div class="k">사회/과학 융합</div><div class="v">원점수 · A~E (석차 미기재)</div></div>
+        <div class="row"><div class="k">체육·예술·실험</div><div class="v">A·B·C</div></div>
+        <div class="row"><div class="k">교양</div><div class="v">P (통과)</div></div>
+      </div>
+
+      <h4>5등급제 산출비율 (누적)</h4>
+      <div class="grade-dots">
+        <div style="background:#7b6dba"><b>1등급</b>10%</div>
+        <div style="background:#9a8ed4"><b>2등급</b>34%</div>
+        <div style="background:#5a8fd6"><b>3등급</b>66%</div>
+        <div style="background:#88aee0"><b>4등급</b>90%</div>
+        <div style="background:#b8cee8; color:#2a4068"><b>5등급</b>100%</div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>⚙️</span></div>고교학점제 운영 7단계</h3>
+      <div class="stages">
+        <div class="stage"><div class="n">1</div><div class="body"><strong>교육과정</strong><span>영역·단계별 선택 가능한 학점기반 교육과정</span></div></div>
+        <div class="stage"><div class="n">2</div><div class="body"><strong>진로·학업설계</strong><span>진로 상담, 학업계획서 (교육과정 지원팀)</span></div></div>
+        <div class="stage"><div class="n">3</div><div class="body"><strong>수강신청</strong><span>수요 기반 과목 선택, 개인별 시간표 편성</span></div></div>
+        <div class="stage"><div class="n">4</div><div class="body"><strong>수업운영</strong><span>능동적 참여, 자기주도 학습, 다양한 수업방식</span></div></div>
+        <div class="stage"><div class="n">5</div><div class="body"><strong>학생평가</strong><span>과정중심·교사별 평가, 성취평가제</span></div></div>
+        <div class="stage"><div class="n">6</div><div class="body"><strong>학점 취득</strong><span>성취기준 도달 시 이수 / 미이수 시 보충 프로그램</span></div></div>
+        <div class="stage"><div class="n">7</div><div class="body"><strong>졸업</strong><span>학점 기준의 졸업요건 설정</span></div></div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>🛡️</span></div>최소 성취수준 보장지도</h3>
+      <div class="note">교수·학습이 끝났을 때 학생들이 도달하기를 기대하는 지식·기능·태도의 최소 수준</div>
+      <ul>
+        <li><strong>예방지도</strong>: 미도달 예상 학생 사전 지도</li>
+        <li><strong>보충지도</strong>: 미도달 학생 이수 지도</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 2 ============== -->
+  <details id="c2" style="--c1:#57a050; --c2:#88c483;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">🧭</div>
+        <div class="label">Chapter 2.</div>
+      </div>
+      <div class="chap-title">
+        <h2>나의 진로, 나의 과목!</h2>
+        <div class="desc">계열별 권장 선택과목</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+
+      <h3 class="sec"><div class="sec-icon"><span>📖</span></div>인문 계열</h3>
+      <div class="cat-block">
+        <h4>인문·언어</h4>
+        <div class="field"><span class="label">국어</span>화법과 언어, 독서와 작문, 문학, 주제 탐구 독서, 문학과 영상, 독서 토론과 글쓰기, 언어생활 탐구</div>
+        <div class="field"><span class="label">수학</span>대수, 확률과 통계</div>
+        <div class="field"><span class="label">영어</span>영어 I·II, 영어 독해와 작문, 영어 문화 읽기, 발표와 토론, 심화 영어, 심화 영어 독해와 작문, 실생활 영어 회화, 세계 문화와 영어</div>
+        <div class="field"><span class="label">사회</span>세계시민과 지리, 세계사, 사회와 문화, 동아시아 역사 기행, 인문학과 윤리, 국제 관계의 이해</div>
+        <div class="field"><span class="label">제2외/한문</span>제2외국어, 한문</div>
+        <div class="field"><span class="label">교양</span>인간과 철학, 인간과 심리</div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>💼</span></div>사회 계열</h3>
+      <div class="cat-block">
+        <h4>경제·경영</h4>
+        <div class="field"><span class="label">국어</span>화법과 언어, 독서와 작문, 문학, 주제 탐구 독서, 독서 토론과 글쓰기, 매체 의사소통</div>
+        <div class="field"><span class="label">수학</span>대수, 확률과 통계, 경제 수학, 실용 통계</div>
+        <div class="field"><span class="label">영어</span>영어 I·II, 독해와 작문, 발표와 토론, 실생활 영어 회화, 미디어 영어</div>
+        <div class="field"><span class="label">사회</span>세계시민과 지리, 세계사, 사회와 문화, 현대사회와 윤리, 법과 사회, 경제, 윤리와 사상, 도시의 미래 탐구, 국제 관계의 이해, 사회문제 탐구, 금융과 경제생활, 기후변화와 지속가능한 세계</div>
+        <div class="field"><span class="label">기·가/정보</span>정보, 데이터 과학, 지식 재산 일반</div>
+        <div class="field"><span class="label">교양</span>인간과 심리, 인간과 정체성</div>
+      </div>
+      <div class="cat-block">
+        <h4>언론·광고 / 사회과학 / 법학·행정</h4>
+        <div class="field"><span class="label">국어</span>화법과 언어, 독서와 작문, 문학, 주제 탐구 독서, 독서 토론과 글쓰기, 매체 의사소통</div>
+        <div class="field"><span class="label">수학</span>대수, 확률과 통계, 실용 통계</div>
+        <div class="field"><span class="label">영어</span>영어 I·II, 독해와 작문, 발표와 토론, 실생활 영어 회화, 미디어 영어</div>
+        <div class="field"><span class="label">사회</span>세계시민과 지리, 세계사, 사회와 문화, 현대사회와 윤리, 정치, 법과 사회, 경제, 윤리와 사상, 도시의 미래 탐구, 국제 관계의 이해, 사회문제 탐구, 한국지리 탐구</div>
+        <div class="field"><span class="label">기·가/정보</span>정보, 데이터 과학</div>
+        <div class="field"><span class="label">교양</span>인간과 철학, 논리와 사고, 인간과 심리</div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>🏥</span></div>의료·보건 계열</h3>
+      <div class="cat-block">
+        <h4>의료·보건</h4>
+        <div class="field"><span class="label">국어</span>화법과 언어, 독서와 작문, 문학, 주제 탐구 독서, 독서 토론과 글쓰기</div>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I, 확률과 통계, 미적분 II, 기하</div>
+        <div class="field"><span class="label">영어</span>영어 I·II, 발표와 토론, 심화 영어, 심화 영어 독해와 작문</div>
+        <div class="field"><span class="label">과학</span>화학, 생명과학, 물질과 에너지, 화학 반응의 세계, 세포와 물질대사, 생물의 유전</div>
+        <div class="field"><span class="label">교양</span>보건</div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>🔬</span></div>과학 계열</h3>
+      <div class="cat-block">
+        <h4>농림 수산</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I·II, 기하, 확률과 통계</div>
+        <div class="field"><span class="label">과학</span>화학, 생명과학, 지구과학, 화학 반응의 세계, 세포와 물질대사, 생물의 유전, 지구시스템과학, 기후변화와 환경 생태</div>
+        <div class="field"><span class="label">사회</span>한국지리 탐구, 기후변화와 지속가능한 세계</div>
+        <div class="field"><span class="label">교양</span>생태와 환경</div>
+      </div>
+      <div class="cat-block">
+        <h4>생활 과학</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I, 확률과 통계</div>
+        <div class="field"><span class="label">과학</span>화학, 생명과학, 화학 반응의 세계, 세포와 물질대사, 생물의 유전</div>
+        <div class="field"><span class="label">사회</span>사회와 문화, 경제</div>
+        <div class="field"><span class="label">예술</span>미술, 미술창작 (의류학과 등)</div>
+      </div>
+      <div class="cat-block">
+        <h4>수리·물리·천문지구</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I·II, 확률과 통계, 기하, 인공지능 수학, 실용 통계, 수학과제 탐구</div>
+        <div class="field"><span class="label">과학</span>물리학, 지구과학, 역학과 에너지, 전자기와 양자, 지구시스템과학, 행성우주과학</div>
+        <div class="field"><span class="label">기·가/정보</span>정보, 인공지능 기초, 데이터 과학</div>
+        <div class="field"><span class="label">교양</span>논리와 사고</div>
+      </div>
+      <div class="cat-block">
+        <h4>화학·생명과학</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I·II, 기하, 확률과 통계</div>
+        <div class="field"><span class="label">과학</span>물리학, 화학, 생명과학, 전자기와 양자, 물질과 에너지, 화학 반응의 세계, 세포와 물질대사, 기후변화와 환경 생태</div>
+        <div class="field"><span class="label">기·가/정보</span>정보</div>
+        <div class="field"><span class="label">교양</span>생태와 환경</div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>⚙️</span></div>공학 계열</h3>
+      <div class="cat-block">
+        <h4>기계·전자전기·컴퓨터 / 재료·에너지·화공</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I·II, 확률과 통계, 기하, 인공지능 수학, 수학과제 탐구</div>
+        <div class="field"><span class="label">과학</span>물리학, 화학, 역학과 에너지, 전자기와 양자, 물질과 에너지, 화학 반응의 세계</div>
+        <div class="field"><span class="label">기·가/정보</span>기술·가정, 정보, 로봇과 공학세계, 인공지능 기초, 창의공학 설계</div>
+        <div class="field"><span class="label">교양</span>논리와 사고</div>
+      </div>
+      <div class="cat-block">
+        <h4>건축·토목·도시·환경공학</h4>
+        <div class="field"><span class="label">수학</span>대수, 미적분 I·II, 기하</div>
+        <div class="field"><span class="label">과학</span>물리학, 화학, 역학과 에너지, 전자기와 양자, 물질과 에너지, 화학 반응의 세계</div>
+        <div class="field"><span class="label">기·가/정보</span>지식 재산 일반, 창의 공학 설계, 정보, 인공지능 기초, 데이터 과학, 소프트웨어와 생활</div>
+        <div class="field"><span class="label">교양</span>논리와 사고, 인간과 심리</div>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 3 ============== -->
+  <details id="c3" style="--c1:#4178c1; --c2:#88aee0;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">📑</div>
+        <div class="label">Chapter 3.</div>
+      </div>
+      <div class="chap-title">
+        <h2>2022 개정 교과목 편제</h2>
+        <div class="desc">공통 · 일반 · 진로 · 융합</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+      <div class="note">🟡 노란 강조: 2028학년도 수능 출제 과목 · 🟣 상대평가 석차 미기재 과목</div>
+
+      <div class="cat-block">
+        <h4>국어</h4>
+        <div class="field"><span class="label">공통</span>공통국어 1·2</div>
+        <div class="field"><span class="label">일반</span><mark>화법과 언어</mark>, 독서와 작문, 문학</div>
+        <div class="field"><span class="label">진로</span>주제 탐구 독서, 문학과 영상, 직무 의사소통</div>
+        <div class="field"><span class="label">융합</span>독서 토론과 글쓰기, 매체 의사소통, 언어생활 탐구</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>수학</h4>
+        <div class="field"><span class="label">공통</span>공통수학 1·2, 기본수학 1·2</div>
+        <div class="field"><span class="label">일반</span><mark>대수, 미적분 I</mark>, 확률과 통계</div>
+        <div class="field"><span class="label">진로</span>기하, 미적분 II, 경제수학, 인공지능 수학, 직무 수학</div>
+        <div class="field"><span class="label">융합</span>수학과 문화, 실용 통계, 수학과제 탐구</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>영어</h4>
+        <div class="field"><span class="label">공통</span>공통영어 1·2, 기본영어 1·2</div>
+        <div class="field"><span class="label">일반</span><mark>영어 I, 영어 II</mark>, 영어 독해와 작문</div>
+        <div class="field"><span class="label">진로</span>영미 문학 읽기, 영어 발표와 토론, 심화 영어, 심화 영어 독해와 작문, 직무영어</div>
+        <div class="field"><span class="label">융합</span>실생활 영어 회화, 미디어 영어, 세계 문화 영어</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>사회 (역사/도덕 포함)</h4>
+        <div class="field"><span class="label">공통</span><mark>한국사 1·2</mark>, 통합사회 1·2</div>
+        <div class="field"><span class="label">일반</span>세계 시민과 지리, 세계사, 사회와 문화, 현대사회와 윤리</div>
+        <div class="field"><span class="label">진로</span>한국지리 탐구, 도시의 미래 탐구, 동아시아 역사 기행, 정치, 법과 사회, 경제, 윤리와 사상, 인문학과 윤리, 국제 관계의 이해</div>
+        <div class="field"><span class="label">융합</span>여행지리, 역사로 탐구하는 현대 세계, 사회문제 탐구, 금융과 경제생활, 윤리문제 탐구, 기후변화와 지속가능한 세계</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>과학</h4>
+        <div class="field"><span class="label">공통</span>통합과학 1·2, 과학탐구실험 1·2</div>
+        <div class="field"><span class="label">일반</span>물리학, 화학, 생명과학, 지구과학</div>
+        <div class="field"><span class="label">진로</span>역학과 에너지, 전자기와 양자, 물질과 에너지, 화학반응의 세계, 세포와 물질대사, 생물의 유전, 지구시스템과학, 행성우주과학</div>
+        <div class="field"><span class="label">융합</span>과학의 역사와 문화, 기후변화와 환경생태, 융합과학 탐구</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>체육</h4>
+        <div class="field"><span class="label">일반</span>체육 1·2</div>
+        <div class="field"><span class="label">진로</span>운동과 건강, 스포츠 문화, 스포츠 과학</div>
+        <div class="field"><span class="label">융합</span>스포츠 생활 1·2</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>예술</h4>
+        <div class="field"><span class="label">일반</span>음악, 미술, 연극</div>
+        <div class="field"><span class="label">진로</span>음악 연주와 창작, 음악 감상과 비평, 미술 창작, 미술 감상과 비평</div>
+        <div class="field"><span class="label">융합</span>음악과 미디어, 미술과 매체</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>기술·가정 / 정보</h4>
+        <div class="field"><span class="label">일반</span>기술·가정, 정보</div>
+        <div class="field"><span class="label">진로</span>로봇과 공학세계, 생활과학 탐구, 인공지능 기초, 데이터 과학</div>
+        <div class="field"><span class="label">융합</span>창의 공학 설계, 지식 재산 일반, 생애 설계와 자립, 아동발달과 부모, 소프트웨어와 생활</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>제2외국어 / 한문</h4>
+        <div class="field"><span class="label">일반</span>독일어, 프랑스어, 스페인어, 중국어, 일본어, 러시아어, 아랍어, 베트남어 / 한문</div>
+        <div class="field"><span class="label">진로</span>각 언어 회화·심화 / 한문 고전 읽기</div>
+        <div class="field"><span class="label">융합</span>각 언어권 문화 / 언어생활과 한자</div>
+      </div>
+
+      <div class="cat-block">
+        <h4>교양</h4>
+        <div class="field"><span class="label">일반</span>진로와 직업, 생태와 환경</div>
+        <div class="field"><span class="label">진로</span>인간과 철학, 논리와 사고, 인간과 심리, 교육의 이해, 삶과 종교, 보건</div>
+        <div class="field"><span class="label">융합</span>인간과 경제활동, 논술</div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 4 ============== -->
+  <details id="c4" open style="--c1:#e489ad; --c2:#f5a8c4;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">⭐</div>
+        <div class="label">Chapter 4.</div>
+      </div>
+      <div class="chap-title">
+        <h2>우리학교 수강신청 대상 과목</h2>
+        <div class="desc">학년별 택1·택2·택3·택4</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+      <div class="note">🔴 <strong>빨간색</strong>: 융합선택과목</div>
+
+      <!-- 1학년용: 2학년·3학년 모두 -->
+      <div data-grade="1">
+
+        <div class="sem-block yellow">
+          <div class="sem-header"><div class="sem-title">2학년 1학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">국어 / 수학</div>
+            <div class="pick-courses"><span>문학과 영상</span><span>기하</span></div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 2</div>
+            <div class="pick-meta">사회 / 과학</div>
+            <div class="pick-courses">
+              <span>세계사</span><span>세계시민과 지리</span><span>현대사회와 윤리</span><span>법과 사회</span><span>경제</span>
+              <span>물리학</span><span>화학</span><span>생명과학</span><span>지구과학</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">제2외국어</div>
+            <div class="pick-courses"><span>중국어</span><span>일본어</span></div>
+          </div>
+        </div>
+
+        <div class="sem-block pink">
+          <div class="sem-header"><div class="sem-title">2학년 2학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">국어 / 수학</div>
+            <div class="pick-courses"><span>독서토론과 글쓰기</span><span>인공지능 수학</span></div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 2</div>
+            <div class="pick-meta">사회 / 과학</div>
+            <div class="pick-courses">
+              <span>물리학</span><span>화학</span><span>생명과학</span><span>지구과학</span>
+              <span>전자기와 양자</span><span>세포와 물질대사</span>
+              <span>사회와 문화</span><span>도시의 미래 탐구</span><span>동아시아 역사 기행</span>
+              <span class="fusion">윤리문제 탐구</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">제2외국어</div>
+            <div class="pick-courses"><span>중국어 회화</span><span>일본어 회화</span></div>
+          </div>
+        </div>
+
+        <div class="sem-block blue">
+          <div class="sem-header"><div class="sem-title">3학년 1학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">국어/수학/영어</div>
+            <div class="pick-courses">
+              <span>주제 탐구 독서</span><span>경제 수학</span><span>미적분Ⅱ</span><span>심화영어</span><span>영미 문학 읽기</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">교양</div>
+            <div class="pick-courses"><span>생태와 환경</span><span>교육의 이해</span><span>보건</span><span>인간과 심리</span></div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 4</div>
+            <div class="pick-meta">사회 / 과학</div>
+            <div class="pick-courses">
+              <span>윤리와 사상</span><span>정치</span><span>한국지리 탐구</span>
+              <span class="fusion">기후변화와 지속가능한 세계</span>
+              <span class="fusion">사회문제 탐구</span>
+              <span>물질과 에너지</span><span>지구시스템과학</span>
+              <span class="fusion">융합과학 탐구</span>
+              <span class="fusion">역사로 탐구하는 현대 세계</span>
+              <span>역학과 에너지</span><span>화학 반응의 세계</span><span>생물의 유전</span><span>행성우주과학</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sem-block green">
+          <div class="sem-header"><div class="sem-title">3학년 2학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 3</div>
+            <div class="pick-meta">국·수·영 융합</div>
+            <div class="pick-courses">
+              <span class="fusion">매체 의사소통</span>
+              <span class="fusion">언어생활 탐구</span>
+              <span>수학과 문화</span>
+              <span class="fusion">수학과제 탐구</span>
+              <span class="fusion">실용 통계</span>
+              <span class="fusion">세계 문화와 영어</span>
+              <span class="fusion">실생활 영어 회화</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">정보 / 외국어 문화</div>
+            <div class="pick-courses"><span>인공지능 기초</span><span>중국 문화</span><span>일본 문화</span></div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">교양</div>
+            <div class="pick-courses"><span>생태와 환경</span><span>교육의 이해</span><span>보건</span><span>인간과 심리</span></div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 4</div>
+            <div class="pick-meta">사회 / 과학</div>
+            <div class="pick-courses">
+              <span class="fusion">역사로 탐구하는 현대 세계</span>
+              <span>역학과 에너지</span><span>화학 반응의 세계</span><span>생물의 유전</span><span>행성우주과학</span>
+              <span>인문학과 윤리</span>
+              <span class="fusion">금융과 경제 생활</span>
+              <span class="fusion">여행지리</span>
+              <span class="fusion">기후변화와 환경생태</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2학년용: 3학년만 -->
+      <div data-grade="2">
+
+        <div class="sem-block blue">
+          <div class="sem-header"><div class="sem-title">3학년 1학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 2</div>
+            <div class="pick-meta">국어/수학/영어 (진로)</div>
+            <div class="pick-courses">
+              <span>문학과 영상</span><span>주제 탐구 독서</span><span>기하</span><span>미적분Ⅱ</span>
+              <span>영어 독해와 작문</span><span>영미 문학 읽기</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 2</div>
+            <div class="pick-meta">심화 / 융합</div>
+            <div class="pick-courses">
+              <span>심화 영어</span>
+              <span class="fusion">독서 토론과 글쓰기</span>
+              <span class="fusion">매체 의사소통</span>
+              <span class="fusion">언어생활 탐구</span>
+              <span>경제 수학</span>
+              <span class="fusion">수학과제 탐구</span>
+              <span class="fusion">실생활 영어 회화</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 4</div>
+            <div class="pick-meta">사회 / 과학</div>
+            <div class="pick-courses">
+              <span>윤리와 사상</span><span>정치</span><span>한국지리 탐구</span>
+              <span class="fusion">기후변화와 지속가능한 세계</span>
+              <span class="fusion">사회문제 탐구</span>
+              <span class="fusion">융합과학 탐구</span>
+              <span class="fusion">역사로 탐구하는 현대 세계</span>
+              <span>역학과 에너지</span><span>화학 반응의 세계</span><span>생물의 유전</span><span>행성우주과학</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">교양</div>
+            <div class="pick-courses"><span>논술</span><span>교육의 이해</span><span>보건</span><span>인간과 심리</span></div>
+          </div>
+        </div>
+
+        <div class="sem-block green">
+          <div class="sem-header"><div class="sem-title">3학년 2학기</div></div>
+          <div class="pick-group">
+            <div class="pick-pin">택 4</div>
+            <div class="pick-meta">국·수·영 융합</div>
+            <div class="pick-courses">
+              <span class="fusion">독서 토론과 글쓰기</span>
+              <span class="fusion">매체 의사소통</span>
+              <span class="fusion">언어생활 탐구</span>
+              <span>경제 수학</span>
+              <span class="fusion">수학과제 탐구</span>
+              <span class="fusion">실생활 영어 회화</span>
+              <span>실용 통계</span>
+              <span class="fusion">세계 문화와 영어</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 4</div>
+            <div class="pick-meta">사회 / 과학 (진로·융합)</div>
+            <div class="pick-courses">
+              <span>역학과 에너지</span><span>화학 반응의 세계</span><span>생물의 유전</span><span>행성우주과학</span>
+              <span>인문학과 윤리</span>
+              <span class="fusion">역사로 탐구하는 현대 세계</span>
+              <span class="fusion">금융과 경제생활</span>
+              <span class="fusion">여행지리</span>
+              <span class="fusion">기후변화와 환경생태</span>
+            </div>
+          </div>
+          <div class="pick-group">
+            <div class="pick-pin">택 1</div>
+            <div class="pick-meta">교양</div>
+            <div class="pick-courses"><span>논술</span><span>교육의 이해</span><span>보건</span><span>인간과 심리</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>⚠️</span></div>과목 선택 시 유의사항</h3>
+      <div class="important">
+        <strong>1. 과목별 필수 이수 단위 충족</strong><br>
+        국어(8) · 수학(8) · 영어(8) · 한국사(6) · 사회(8) · 과학(10) · 체육(10) · 예술(10) · 기·가/정보/외국어/한문/교양(16)
+      </div>
+      <div data-grade="2" class="important">
+        <strong>★ 2학년 추가 조건:</strong> 2학년 때 사회·과학 탐구 중 한 분야만 선택한 학생은, 3학년에서 다른 분야 과목을 <mark>1개 이상 선택</mark>해야 함
+      </div>
+      <ul>
+        <li><strong>위계 준수</strong>: Ⅰ→Ⅱ 순서 (병행 가능)</li>
+        <li><strong>같은 학년 1·2학기 동일 과목 선택 불가</strong></li>
+        <li>신청자 부족 시 미개설 → <strong>공동교육과정</strong>으로 이수 가능</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 5 ============== -->
+  <details id="c5" style="--c1:#f0c91c; --c2:#fce58a;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">📅</div>
+        <div class="label">Chapter 5.</div>
+      </div>
+      <div class="chap-title">
+        <h2>수강신청 및 변경 절차</h2>
+        <div class="desc">연간 일정 · 변경 절차</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+
+      <h3 class="sec"><div class="sec-icon"><span>📅</span></div>수강신청 절차</h3>
+      <div class="timeline-pdf">
+        <div class="tl-item">
+          <div class="tl-content">
+            <div class="tl-label">선택과목 안내</div>
+            <div class="tl-desc">성격·목표·내용체계·교수 학습 및 평가 안내</div>
+          </div>
+          <div class="tl-time">5월</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-content">
+            <div class="tl-label">수요조사 + 수강신청 대상 과목 확정</div>
+            <div class="tl-desc">수요조사 결과를 바탕으로 수강신청 대상 과목 확정</div>
+          </div>
+          <div class="tl-time">5~6월</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-content">
+            <div class="tl-label">수강신청</div>
+            <div class="tl-desc">정정기간 및 절차, 이후 일정 사전 안내, 이수 조건/위계 확인</div>
+          </div>
+          <div class="tl-time">7~10월</div>
+        </div>
+      </div>
+
+      <div class="tl-note">
+        <strong>1차 수요조사</strong> 5.23(토) ~ 6.2(화) · 리로스쿨<br>
+        <strong>2차 최종선택</strong> 7.13(월) ~ 7.17(금) · 리로스쿨(예정)<br>
+        <strong>3차 과목확인서</strong> 10월 중순 (본인·학부모 확인 필수)
+      </div>
+
+      <div class="timeline-pdf">
+        <div class="tl-item">
+          <div class="tl-content">
+            <div class="tl-label">수강신청 정정기간</div>
+            <div class="tl-desc">절차에 따라 정정기간 운영</div>
+          </div>
+          <div class="tl-time">11월</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-content">
+            <div class="tl-label">다음 년도 교육과정 확정</div>
+            <div class="tl-desc">수강신청 결과 분석 → 차 년도 교육과정 확정</div>
+          </div>
+          <div class="tl-time">12월</div>
+        </div>
+      </div>
+      <div class="note">※ 시기는 조정될 수 있음</div>
+
+      <h3 class="sec"><div class="sec-icon"><span>🔄</span></div>수강신청 변경 절차</h3>
+      <div class="steps">
+        <div class="step"><div class="text">학생과 학부모의 <strong>과목변경 신청서 제출</strong></div></div>
+        <div class="step"><div class="text">담임교사, 진로진학상담부장, 교육과정부와의 <strong>상담</strong></div></div>
+        <div class="step"><div class="text">학교교육과정위원회의 <strong>검토 및 심의</strong></div></div>
+        <div class="step"><div class="text">학교장 <strong>허가 및 결과 통보</strong></div></div>
+      </div>
+      <div class="warn">⚠️ 변경 요청해도 철회될 수 있음. <strong>신중하게 신청 바랍니다.</strong></div>
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 6 ============== -->
+  <details id="c6" style="--c1:#9a8ed4; --c2:#bbb2e3;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">📋</div>
+        <div class="label">Chapter 6.</div>
+      </div>
+      <div class="chap-title">
+        <h2 data-grade="1">2027학년도 2학년 학업계획서</h2>
+        <h2 data-grade="2">2027학년도 3학년 학업계획서</h2>
+        <div class="desc">학교 지정 + 학생 선택</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+
+      <div data-grade="1">
+        <h3 class="sec"><div class="sec-icon"><span>🏫</span></div>학교 지정 과목 (2학년)</h3>
+        <div class="table-card">
+          <div class="row"><div class="k">국어</div><div class="v">독서와 작문(1) · 문학(2) · 각 4학점</div></div>
+          <div class="row"><div class="k">수학</div><div class="v">대수(1) · 미적분Ⅰ(2) · 각 4학점</div></div>
+          <div class="row"><div class="k">영어</div><div class="v">영어Ⅰ(1) · 영어Ⅱ(2) · 각 4학점</div></div>
+          <div class="row"><div class="k">체육</div><div class="v">스포츠 생활 1·2 (각 2학점)</div></div>
+          <div class="row"><div class="k">예술</div><div class="v">미술(1) · 미술 창작(2) · 각 2학점</div></div>
+          <div class="row total"><div class="k">소계</div><div class="v">16 / 16 학점</div></div>
+        </div>
+
+        <h3 class="sec"><div class="sec-icon"><span>📝</span></div>학생 선택 과목 영역</h3>
+        <div class="cat-block">
+          <h4>1학기 [택1] 국어/수학</h4>
+          <div class="field">문학과 영상 · 기하</div>
+        </div>
+        <div class="cat-block">
+          <h4>2학기 [택1] 국어/수학</h4>
+          <div class="field">독서토론과 글쓰기 · 인공지능수학</div>
+        </div>
+        <div class="cat-block">
+          <h4>[택2] 사회/과학 (각 학기별)</h4>
+          <div class="field"><strong>1학기:</strong> 세계사, 세계시민과 지리, 현대사회와 윤리, 경제, 법과 사회, 물리학, 화학, 생명과학, 지구과학</div>
+          <div class="field"><strong>2학기:</strong> 사회와 문화, 도시의 미래 탐구, 동아시아 역사 기행, 윤리문제 탐구(융합), 물리학, 화학, 생명과학, 지구과학, 전자기와 양자, 세포와 물질대사</div>
+        </div>
+        <div class="cat-block">
+          <h4>[택1] 제2외국어</h4>
+          <div class="field"><strong>1학기:</strong> 중국어 · 일본어</div>
+          <div class="field"><strong>2학기:</strong> 중국어회화 · 일본어회화</div>
+        </div>
+        <div class="table-card">
+          <div class="row total"><div class="k">선택 소계</div><div class="v">14 / 14 학점</div></div>
+          <div class="row total"><div class="k">학기별 총 이수</div><div class="v">30 / 30 학점</div></div>
+        </div>
+      </div>
+
+      <div data-grade="2">
+        <h3 class="sec"><div class="sec-icon"><span>🏫</span></div>학교 지정 과목 (3학년)</h3>
+        <div class="table-card">
+          <div class="row"><div class="k">체육</div><div class="v">스포츠 문화(1) · 스포츠 과학(2) · 각 1학점</div></div>
+          <div class="row"><div class="k">예술</div><div class="v">음악과 미디어(2) · 2학점</div></div>
+          <div class="row total"><div class="k">소계</div><div class="v">1 / 3 학점</div></div>
+        </div>
+
+        <h3 class="sec"><div class="sec-icon"><span>📝</span></div>학생 선택 과목 영역</h3>
+        <div class="cat-block">
+          <h4>[택2] 국·수·영 진로</h4>
+          <div class="field">문학과 영상, 주제 탐구 독서, 기하, 미적분Ⅱ, 영어 독해와 작문, 영미 문학 읽기</div>
+        </div>
+        <div class="cat-block">
+          <h4>[택2] 융합·심화</h4>
+          <div class="field">심화영어, 독서 토론과 글쓰기, 매체 의사소통, 언어생활 탐구</div>
+        </div>
+        <div class="cat-block">
+          <h4>[택4] 수·영·사·과 (진로·융합)</h4>
+          <div class="field">경제 수학, 수학과제 탐구, 실생활 영어 회화, 실용통계, 세계 문화와 영어, 윤리와 사상, 정치, 한국지리 탐구, 기후변화와 지속가능한 세계, 사회문제 탐구, 융합과학 탐구, 역사로 탐구하는 현대 세계, 역학과 에너지, 화학 반응의 세계, 생물의 유전, 행성우주과학, 인문학과 윤리, 금융과 경제생활, 여행지리, 기후변화와 환경생태</div>
+        </div>
+        <div class="cat-block">
+          <h4>[택1] 교양</h4>
+          <div class="field">논술 · 교육의 이해 · 보건 · 인간과 심리</div>
+        </div>
+        <div class="table-card">
+          <div class="row total"><div class="k">선택 소계</div><div class="v">28 / 26 학점</div></div>
+          <div class="row total"><div class="k">학기별 총 이수</div><div class="v">29 / 29 학점</div></div>
+        </div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>✅</span></div>점검 사항</h3>
+      <div class="warn">
+        ★ <strong>3차 선택(최종수강신청) 이후 과목변경이 어려우므로 신중하게 결정해야 함</strong>
+      </div>
+      <ul>
+        <li>진로희망계열 → 희망학과 → 선택과목 확인 → 학년 과목 체크 → 유의사항 점검 → 최종 확인 및 상담</li>
+        <li>신청자 부족 시 <strong>공동교육과정</strong>으로 이수 가능</li>
+        <li>과목이수 위계 확인</li>
+        <li data-grade="2">2학년 때 사회·과학 한 계열만 선택한 학생은 다른 계열 1과목 필수 선택</li>
+      </ul>
+
+      <h3 class="sec"><div class="sec-icon"><span>👥</span></div>상담 및 점검 확인</h3>
+      <div class="table-card">
+        <div class="row"><div class="k">1차</div><div class="v">학부모 · 담임 · 진로상담</div></div>
+        <div class="row"><div class="k">2차</div><div class="v">학부모 · 담임</div></div>
+        <div class="row"><div class="k">3차</div><div class="v">학부모 · 담임 · 진로상담 · 교육과정</div></div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ============== CHAPTER 7 (1학년 전용) ============== -->
+  <details id="c7" data-grade="1" style="--c1:#5a8fd6; --c2:#88aee0;">
+    <summary>
+      <div class="chap-tag">
+        <div class="icon">🎓</div>
+        <div class="label">Chapter 7.</div>
+      </div>
+      <div class="chap-title">
+        <h2>2028학년도 3학년 학업계획서</h2>
+        <div class="desc">미리 연습하는 3학년 설계</div>
+      </div>
+      <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </summary>
+    <div class="chap-body">
+
+      <h3 class="sec"><div class="sec-icon"><span>🏫</span></div>학교 지정 과목</h3>
+      <div class="table-card">
+        <div class="row"><div class="k">국어</div><div class="v">화법과 언어 (1학기 · 4학점)</div></div>
+        <div class="row"><div class="k">수학</div><div class="v">확률과 통계 (1학기 · 4학점)</div></div>
+        <div class="row"><div class="k">영어</div><div class="v">영어 독해와 작문 (1학기 · 3학점)</div></div>
+        <div class="row"><div class="k">체육</div><div class="v">스포츠 문화 · 스포츠 과학 (각 1학점)</div></div>
+        <div class="row"><div class="k">예술</div><div class="v">음악 감상과 비평 (2학기 · 3학점)</div></div>
+        <div class="row total"><div class="k">소계</div><div class="v">12 / 4 학점</div></div>
+      </div>
+
+      <h3 class="sec"><div class="sec-icon"><span>📝</span></div>학생 선택 과목 영역</h3>
+      <div class="cat-block">
+        <h4>국어 · 수학 · 영어 (진로)</h4>
+        <div class="field">주제탐구독서, 경제수학, 미적분Ⅱ, 심화영어, 영미문학읽기</div>
+      </div>
+      <div class="cat-block">
+        <h4>융합 과목</h4>
+        <div class="field"><strong>국어:</strong> 매체 의사소통, 언어생활 탐구</div>
+        <div class="field"><strong>수학:</strong> 수학과 문화, 수학과제 탐구, 실용 통계</div>
+        <div class="field"><strong>영어:</strong> 세계 문화와 영어, 실생활 영어 회화</div>
+      </div>
+      <div class="cat-block">
+        <h4>사회 · 과학</h4>
+        <div class="field"><strong>진로:</strong> 윤리와 사상, 정치, 한국지리 탐구, 인문학과 윤리, 물질과 에너지, 지구시스템과학, 역학과 에너지, 화학 반응의 세계, 생물의 유전, 행성우주과학</div>
+        <div class="field"><strong>융합:</strong> 기후변화와 지속가능한 세계, 사회문제 탐구, 융합과학 탐구, 역사로 탐구하는 현대 세계, 금융과 경제생활, 여행지리, 기후변화와 환경생태</div>
+      </div>
+      <div class="cat-block">
+        <h4>정보 · 외국어 · 교양</h4>
+        <div class="field"><strong>정보:</strong> 인공지능 기초</div>
+        <div class="field"><strong>외국어:</strong> 중국 문화, 일본 문화</div>
+        <div class="field"><strong>교양:</strong> 생태와 환경, 교육의 이해, 보건, 인간과 심리</div>
+      </div>
+      <div class="table-card">
+        <div class="row total"><div class="k">선택 소계</div><div class="v">17 / 23 학점</div></div>
+        <div class="row total"><div class="k">학기별 총 이수</div><div class="v">29 / 27 학점</div></div>
+      </div>
+
+      <div class="note">💡 3학년 학업설계는 연계성을 위해 미리 연습하는 것입니다.</div>
+    </div>
+  </details>
+
+</div>
+
+<button class="float-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<footer>
+  <div class="logo-mark">
+    <img class="school-logo md" src="logo.png" alt="여수충무고 로고">
+    여수충무고등학교
+  </div>
+  <div>명품학교, 글로벌 인재 육성</div>
+  <div style="margin-top:6px; opacity:.7;">2026학년도 과목선택가이드북</div>
+</footer>
+
+<script>
+function setGrade(n) {
+  document.body.className = 'grade-' + n;
+  document.getElementById('g1').classList.toggle('active', n === 1);
+  document.getElementById('g2').classList.toggle('active', n === 2);
+  document.getElementById('gradeLabel').textContent = n + '학년';
+  try { localStorage.setItem('grade', n); } catch(e) {}
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+try {
+  const saved = localStorage.getItem('grade');
+  if (saved === '2') setGrade(2);
+} catch(e) {}
+
+const progress = document.getElementById('progress');
+const floatBtn = document.querySelector('.float-top');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = pct + '%';
+      floatBtn.classList.toggle('show', h.scrollTop > 400);
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+document.querySelectorAll('.toc a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      if (!target.open) target.open = true;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({top, behavior: 'smooth'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
